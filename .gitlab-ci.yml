@@ -1,0 +1,20 @@
+image: docker:git
+services:
+- docker:dind
+
+
+stages:
+- build
+- package
+- clean
+
+
+build:
+
+  image: maven:3.5.4-jdk-8-alpine
+
+  stage: build
+  script:
+    - mvn clean install
+  
+  when: manual
