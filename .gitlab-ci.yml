@@ -15,10 +15,12 @@ build:
 
   stage: build
   script:
+    # - apk update && apk upgrade && apk add git 
+    - apk add git 
     # Set the M2_HOME environment variable
-    -  export M2_HOME=/usr/share/maven
+    - export M2_HOME=/usr/share/maven
     
-    -  curl -fL https://getcli.jfrog.io | sh
+    - curl -fL https://getcli.jfrog.io | sh
     # Configure Artifactory instance with JFrog CLI
     - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASS
     - ./jfrog rt c show
@@ -26,14 +28,19 @@ build:
     # - mvn clean install
     - ./jfrog rt mvn "clean install" maven.conf --build-name=gitlabci-maven-artifactory --build-number=$CI_JOB_ID
   
-    # Collect the environment variables
+    # Collect the environment variables 
     - ./jfrog rt bce gitlabci-maven-artifactory $CI_JOB_ID
-    
-    # Pass the build information to Artifactory
-    - ./jfrog rt bp gitlabci-maven-artifactory $CI_JOB_ID
-    
+        
     # Add issue
     - ./jfrog rt bag gitlabci-maven-artifactory $CI_JOB_ID --config jira-cli.conf
+    
+    # Pass the build information to Artifactory  
+    - ./jfrog rt bp gitlabci-maven-artifactory $CI_JOB_ID
+    
+    # Promote
+    - ./jfrog rt gitlabci-maven-artifactory $CI_JOB_ID maven-pro-local
+
+    
     
     
   when: manual
