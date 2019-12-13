@@ -26,10 +26,10 @@ build:
     - ./jfrog rt c show
     
     # - mvn clean install
-    - ./jfrog rt mvn "clean install" maven.conf --build-name=gitlabci-maven-artifactory --build-number=$CI_JOB_ID
+#    - ./jfrog rt mvn "clean install" maven.conf --build-name=gitlabci-maven-artifactory --build-number=$CI_JOB_ID
   
     # Collect the environment variables 
-    - ./jfrog rt bce gitlabci-maven-artifactory $CI_JOB_ID
+#    - ./jfrog rt bce gitlabci-maven-artifactory $CI_JOB_ID
         
     # Add issue
     - ./jfrog rt bag gitlabci-maven-artifactory $CI_JOB_ID --config jira-cli.conf
@@ -38,7 +38,7 @@ build:
     - ./jfrog rt bp gitlabci-maven-artifactory $CI_JOB_ID
     
     # Promote
-    - ./jfrog rt bpr gitlabci-maven-artifactory $CI_JOB_ID maven-pro-local
+#    - ./jfrog rt bpr gitlabci-maven-artifactory $CI_JOB_ID maven-pro-local
 
     
     
