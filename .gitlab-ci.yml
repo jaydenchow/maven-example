@@ -38,7 +38,7 @@ build:
     - ./jfrog rt bp gitlabci-maven-artifactory $CI_JOB_ID
     
     # Promote
-    - ./jfrog rt gitlabci-maven-artifactory $CI_JOB_ID maven-pro-local
+    - ./jfrog rt bpr gitlabci-maven-artifactory $CI_JOB_ID maven-pro-local
 
     
     
