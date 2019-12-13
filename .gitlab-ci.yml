@@ -20,7 +20,7 @@ build:
     - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASS
     - ./jfrog rt c show
     # Set the M2_HOME environment variable
-    # - export M2_HOME=/usr/share/maven
+    - export M2_HOME=/usr/share/maven
     # Replace the repository name in the configuration.yml to the correct one.
     # - sed -i 's,MAVEN_REPO_KEY,'"$MAVEN_REPO_KEY"',g' configuration.yml
     # - mvn clean install
