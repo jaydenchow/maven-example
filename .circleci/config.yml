@@ -59,7 +59,7 @@ jobs:
           command: |
             ./jfrog rt bpr circleci-maven-artifactory $CIRCLE_BUILD_NUM maven-pro-local
   
-        - run:
+      - run:
           name: Xray Scan 
           command: |
             ./jfrog rt bs circleci-maven-artifactory $CIRCLE_BUILD_NUM --fail=false
