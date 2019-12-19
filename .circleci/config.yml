@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Collect the environment variables 
           command: |
-            ./jfrog rt bce
+            ./jfrog rt bce circleci-maven-artifactory $CIRCLE_BUILD_NUM 
             
       - run:
           name: Collect the environment variables 
