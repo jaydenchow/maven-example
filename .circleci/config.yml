@@ -26,6 +26,7 @@ jobs:
       - run:
           name: Maven install
           command: |
+            export M2_HOME=/usr/share/maven
             ./jfrog rt mvn "clean install" maven.conf --build-name=circleci-maven-artifactory --build-number=$CIRCLE_BUILD_NUM
 
       - run:
