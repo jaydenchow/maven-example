@@ -33,11 +33,7 @@ jobs:
           name: Collect the environment variables 
           command: |
             ./jfrog rt bce circleci-maven-artifactory $CIRCLE_BUILD_NUM 
-            
-      - run:
-          name: Collect the environment variables 
-          command: |
-            ./jfrog rt bag circleci-maven-artifactory $CIRCLE_BUILD_NUM --config jira-cli.conf
+           
             
       - run:
           name: Add sonar
