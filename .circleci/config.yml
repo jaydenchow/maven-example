@@ -35,6 +35,7 @@ jobs:
             ./jfrog rt bce circleci-maven-artifactory $CIRCLE_BUILD_NUM 
            
             
+            
       - run:
           name: Add sonar
           command: |
