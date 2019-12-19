@@ -15,6 +15,7 @@ jobs:
           name: Config
           command: |
             export M2_HOME=/usr/share/maven
+            maven -version
             
       - run:
           name: Config
